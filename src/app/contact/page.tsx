@@ -43,16 +43,30 @@ export default function ContactPage() {
             <h2 className="text-3xl font-bold text-navy-dark mb-10">
               Send a Message
             </h2>
-            <form className="space-y-8">
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              className="space-y-8"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden">
+                <label>
+                  Don&apos;t fill this out: <input name="bot-field" />
+                </label>
+              </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border-b border-outline-variant/40 focus-within:border-b-2 focus-within:border-gold transition-all">
                   <label className="block text-xs uppercase tracking-wider text-on-surface-variant mb-1">
                     Full Name
                   </label>
                   <input
+                    name="name"
                     className="w-full border-none bg-transparent px-0 py-2 focus:ring-0 text-navy-dark placeholder:text-outline-variant/50 font-medium"
                     placeholder="John Doe"
                     type="text"
+                    required
                   />
                 </div>
                 <div className="border-b border-outline-variant/40 focus-within:border-b-2 focus-within:border-gold transition-all">
@@ -60,9 +74,11 @@ export default function ContactPage() {
                     Email Address
                   </label>
                   <input
+                    name="email"
                     className="w-full border-none bg-transparent px-0 py-2 focus:ring-0 text-navy-dark placeholder:text-outline-variant/50 font-medium"
                     placeholder="john@example.com"
                     type="email"
+                    required
                   />
                 </div>
               </div>
@@ -72,6 +88,7 @@ export default function ContactPage() {
                     Phone Number
                   </label>
                   <input
+                    name="phone"
                     className="w-full border-none bg-transparent px-0 py-2 focus:ring-0 text-navy-dark placeholder:text-outline-variant/50 font-medium"
                     placeholder="(555) 000-0000"
                     type="tel"
@@ -81,7 +98,10 @@ export default function ContactPage() {
                   <label className="block text-xs uppercase tracking-wider text-on-surface-variant mb-1">
                     Insurance Type
                   </label>
-                  <select className="w-full border-none bg-transparent px-0 py-2 focus:ring-0 text-navy-dark font-medium appearance-none">
+                  <select
+                    name="insurance-type"
+                    className="w-full border-none bg-transparent px-0 py-2 focus:ring-0 text-navy-dark font-medium appearance-none"
+                  >
                     <option>Home</option>
                     <option>Auto</option>
                     <option>Life</option>
@@ -95,9 +115,11 @@ export default function ContactPage() {
                   Message
                 </label>
                 <textarea
+                  name="message"
                   className="w-full border-none bg-transparent px-0 py-2 focus:ring-0 text-navy-dark placeholder:text-outline-variant/50 font-medium resize-none"
                   placeholder="How can we help you today?"
                   rows={4}
+                  required
                 ></textarea>
               </div>
               <div className="pt-6">

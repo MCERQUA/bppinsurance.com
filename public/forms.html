@@ -1,0 +1,22 @@
+<!-- Hidden page for Netlify form detection. Not linked anywhere. -->
+<html>
+<body>
+<form name="contact" netlify netlify-honeypot="bot-field" hidden>
+  <input name="bot-field" />
+  <input name="name" />
+  <input name="email" />
+  <input name="phone" />
+  <select name="insurance-type"><option></option></select>
+  <textarea name="message"></textarea>
+</form>
+
+<form name="claims" netlify netlify-honeypot="bot-field" enctype="multipart/form-data" hidden>
+  <input name="bot-field" />
+  <input name="policy-number" />
+  <select name="claim-type"><option></option></select>
+  <input name="incident-date" />
+  <textarea name="description"></textarea>
+  <input name="documents" type="file" />
+</form>
+</body>
+</html>

@@ -105,23 +105,41 @@ export default function ClaimsPage() {
             <h2 className="text-4xl font-extrabold tracking-tight text-navy mb-8">
               File a Claim Online
             </h2>
-            <form className="space-y-8">
+            <form
+              name="claims"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              encType="multipart/form-data"
+              className="space-y-8"
+            >
+              <input type="hidden" name="form-name" value="claims" />
+              <p className="hidden">
+                <label>
+                  Don&apos;t fill this out: <input name="bot-field" />
+                </label>
+              </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
                     Policy Number
                   </label>
                   <input
+                    name="policy-number"
                     className="w-full bg-transparent border-0 border-b-2 border-outline-variant/20 focus:ring-0 focus:border-gold transition-all py-3 px-0 text-navy-dark placeholder:text-outline/40"
                     placeholder="BP-XXXX-XXXX"
                     type="text"
+                    required
                   />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
                     Claim Type
                   </label>
-                  <select className="w-full bg-transparent border-0 border-b-2 border-outline-variant/20 focus:ring-0 focus:border-gold transition-all py-3 px-0 text-navy-dark">
+                  <select
+                    name="claim-type"
+                    className="w-full bg-transparent border-0 border-b-2 border-outline-variant/20 focus:ring-0 focus:border-gold transition-all py-3 px-0 text-navy-dark"
+                  >
                     <option>Auto</option>
                     <option>Home</option>
                     <option>Life</option>
@@ -134,8 +152,10 @@ export default function ClaimsPage() {
                   Date of Incident
                 </label>
                 <input
+                  name="incident-date"
                   className="w-full bg-transparent border-0 border-b-2 border-outline-variant/20 focus:ring-0 focus:border-gold transition-all py-3 px-0 text-navy-dark"
                   type="date"
+                  required
                 />
               </div>
               <div className="space-y-2">
@@ -143,16 +163,25 @@ export default function ClaimsPage() {
                   Description of Incident
                 </label>
                 <textarea
+                  name="description"
                   className="w-full bg-transparent border-0 border-b-2 border-outline-variant/20 focus:ring-0 focus:border-gold transition-all py-3 px-0 text-navy-dark resize-none placeholder:text-outline/40"
                   placeholder="Please provide details about what happened..."
                   rows={4}
+                  required
                 ></textarea>
               </div>
               <div className="space-y-4">
                 <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
                   Upload Documents
                 </label>
-                <div className="border-2 border-dashed border-outline-variant/30 rounded-2xl p-8 flex flex-col items-center justify-center bg-surface-low transition-all hover:bg-surface-container hover:border-gold/40 group cursor-pointer">
+                <label className="border-2 border-dashed border-outline-variant/30 rounded-2xl p-8 flex flex-col items-center justify-center bg-surface-low transition-all hover:bg-surface-container hover:border-gold/40 group cursor-pointer">
+                  <input
+                    name="documents"
+                    type="file"
+                    multiple
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    className="hidden"
+                  />
                   <span className="material-symbols-outlined text-4xl text-on-surface-variant mb-2 group-hover:text-gold transition-colors">
                     upload_file
                   </span>
@@ -163,7 +192,7 @@ export default function ClaimsPage() {
                   <p className="text-[10px] text-outline mt-1">
                     PDF, JPG, PNG (Max 10MB)
                   </p>
-                </div>
+                </label>
               </div>
               <button
                 className="w-full md:w-auto px-12 py-4 bg-linear-to-r from-gold to-gold-dark text-[#241a00] font-bold rounded-lg shadow-xl shadow-gold/20 hover:scale-[1.02] transition-all duration-300"
