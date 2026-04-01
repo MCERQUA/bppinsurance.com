@@ -51,6 +51,14 @@ export default function Footer() {
             </li>
             <li>
               <Link
+                href="/blog"
+                className="text-slate-500 hover:text-gold underline-offset-4 hover:underline transition-all"
+              >
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/claims"
                 className="text-slate-500 hover:text-gold underline-offset-4 hover:underline transition-all"
               >
