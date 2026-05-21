@@ -19,8 +19,42 @@ export default function BlogPage() {
 
   const recentPosts = getRecentPosts(4);
 
+  const siteUrl = "https://bppinsurance.com";
+  const blogJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "BPP Insurance Insights",
+    description:
+      "Expert guidance, industry news, and practical advice on insurance coverage.",
+    url: `${siteUrl}/blog`,
+    publisher: { "@type": "Organization", name: "BPP Insurance" },
+    blogPost: blogPosts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      url: `${siteUrl}/blog/${post.slug}`,
+      datePublished: post.date,
+      author: { "@type": "Person", name: post.author },
+    })),
+  };
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-8 pt-32 pb-24 md:pb-32 relative overflow-hidden">
         <div className="absolute -right-20 top-0 w-1/2 h-full bg-linear-to-l from-surface-high/30 to-transparent -z-10 rounded-full blur-3xl"></div>

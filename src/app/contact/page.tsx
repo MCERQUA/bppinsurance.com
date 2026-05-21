@@ -4,6 +4,20 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Get in touch with BPP Insurance. Request a quote, ask a question, or visit our Springfield office.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact BPP Insurance",
+    description:
+      "Request a quote, ask a question, or visit our Springfield office.",
+    url: "/contact",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact BPP Insurance",
+    description:
+      "Request a quote, ask a question, or visit our Springfield office.",
+  },
 };
 
 export default function ContactPage() {

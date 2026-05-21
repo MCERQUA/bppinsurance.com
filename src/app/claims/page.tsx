@@ -5,6 +5,50 @@ export const metadata: Metadata = {
   title: "File a Claim",
   description:
     "File an insurance claim online with BPP Insurance. Simple, stress-free claims process with 24/7 support.",
+  alternates: { canonical: "/claims" },
+  openGraph: {
+    title: "File a Claim | BPP Insurance",
+    description:
+      "Simple, stress-free claims process. File online or call our 24/7 hotline.",
+    url: "/claims",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "File a Claim | BPP Insurance",
+    description:
+      "Simple, stress-free claims process. File online or call our 24/7 hotline.",
+  },
+};
+
+const faqAnswers: Record<string, string> = {
+  "How long does the average claim take?":
+    "Most straightforward claims are reviewed within 24 hours and resolved within 7–14 business days. Complex claims involving significant damage or third parties may take longer.",
+  "What documents do I need for my submission?":
+    "Typically you'll need your policy number, photos of the damage, a written description of the incident, any police or incident reports, and receipts for affected items if available.",
+  "Can I choose my own repair shop?":
+    "Yes. You are free to choose your preferred repair shop. Our network shops offer guaranteed work and direct billing, but the choice is always yours.",
+  "How will I receive my settlement?":
+    "Settlements are paid via direct deposit, check, or — for property claims — direct payment to your approved repair vendor. We confirm your preferred method during claim review.",
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: Object.entries(faqAnswers).map(([question, answer]) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://bppinsurance.com/" },
+    { "@type": "ListItem", position: 2, name: "Claims", item: "https://bppinsurance.com/claims" },
+  ],
 };
 
 const steps = [
@@ -44,6 +88,14 @@ const faqs = [
 export default function ClaimsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-8 pt-32 mb-24">
         <div className="relative overflow-hidden rounded-3xl bg-surface-low min-h-[400px] flex items-center p-12 lg:p-24">

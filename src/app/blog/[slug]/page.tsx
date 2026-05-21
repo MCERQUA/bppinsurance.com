@@ -16,6 +16,39 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
 
   const relatedPosts = getRelatedPosts(slug, post.category, 3);
 
+  const siteUrl = "https://bppinsurance.com";
+  const postUrl = `${siteUrl}/blog/${post.slug}`;
+  const blogPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: post.featuredImage,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author,
+      jobTitle: post.authorRole,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "BPP Insurance",
+      logo: { "@type": "ImageObject", url: `${siteUrl}/og-image.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
+    articleSection: post.category,
+  };
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
+      { "@type": "ListItem", position: 3, name: post.category, item: postUrl },
+    ],
+  };
+
   const handleShare = (platform: string) => {
     const url = encodeURIComponent(window.location.href);
     const title = encodeURIComponent(post.title);
@@ -36,6 +69,14 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative bg-navy-dark text-white pt-32 pb-24 overflow-hidden">
         <div className="absolute inset-0 opacity-30">
