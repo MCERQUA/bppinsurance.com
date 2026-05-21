@@ -5,6 +5,20 @@ export const metadata: Metadata = {
   title: "About Us",
   description:
     "Learn about BPP Insurance — a family-owned agency providing trusted, personalized insurance since 1998.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About BPP Insurance",
+    description:
+      "Family-owned insurance agency since 1998. Meet the team behind your protection.",
+    url: "/about",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About BPP Insurance",
+    description:
+      "Family-owned insurance agency since 1998. Meet the team behind your protection.",
+  },
 };
 
 const values = [

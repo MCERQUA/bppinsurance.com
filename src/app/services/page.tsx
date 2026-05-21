@@ -5,6 +5,63 @@ export const metadata: Metadata = {
   title: "Our Services",
   description:
     "Comprehensive home, auto, life, and business insurance coverage tailored to your needs.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Insurance Services | BPP Insurance",
+    description:
+      "Home, auto, life, and business insurance coverage tailored to your needs.",
+    url: "/services",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Insurance Services | BPP Insurance",
+    description:
+      "Home, auto, life, and business insurance coverage tailored to your needs.",
+  },
+};
+
+const servicesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: [
+    {
+      "@type": "Service",
+      position: 1,
+      name: "Home Insurance",
+      provider: { "@type": "InsuranceAgency", name: "BPP Insurance" },
+      areaServed: { "@type": "Country", name: "United States" },
+      description:
+        "Premium home insurance with dwelling, personal property, liability, and additional living expenses coverage.",
+    },
+    {
+      "@type": "Service",
+      position: 2,
+      name: "Auto Insurance",
+      provider: { "@type": "InsuranceAgency", name: "BPP Insurance" },
+      areaServed: { "@type": "Country", name: "United States" },
+      description:
+        "Auto coverage with collision, comprehensive, liability, uninsured motorist, and 24/7 roadside assistance.",
+    },
+    {
+      "@type": "Service",
+      position: 3,
+      name: "Life Insurance",
+      provider: { "@type": "InsuranceAgency", name: "BPP Insurance" },
+      areaServed: { "@type": "Country", name: "United States" },
+      description:
+        "Term, whole, and universal life options plus final expense coverage to secure your family's future.",
+    },
+    {
+      "@type": "Service",
+      position: 4,
+      name: "Business Insurance",
+      provider: { "@type": "InsuranceAgency", name: "BPP Insurance" },
+      areaServed: { "@type": "Country", name: "United States" },
+      description:
+        "Commercial property, general liability, workers' compensation, and professional liability coverage.",
+    },
+  ],
 };
 
 const services = [
@@ -77,6 +134,10 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
+      />
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-8 pt-32 pb-24 md:pb-32 relative overflow-hidden">
         <div className="absolute -right-20 top-0 w-1/2 h-full bg-linear-to-l from-surface-high/30 to-transparent -z-10 rounded-full blur-3xl"></div>
