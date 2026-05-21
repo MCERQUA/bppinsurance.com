@@ -175,3 +175,41 @@ Date: 2026-05-21
 BPP Insurance's website is built on solid Next.js and TypeScript foundations with professional design and structure. However, it lacks critical SEO infrastructure (Open Graph, structured data, image alt-text, sitemaps). Content quality is strong (800–1,200 word pages), but on-page optimization is incomplete. Immediate wins: add OG tags, fix image alts, create robots.txt/sitemap. Medium-term: implement schema.org, optimize blog rendering, expand content. Investment in these areas will significantly improve organic visibility and social sharability.
 
 **Estimated total remediation effort: 25–35 hours.**
+
+---
+
+## Round 2 — repaired 2026-05-21
+
+Tier-2 SEO repair pass. Existing alt-text coverage was much higher than the original audit indicated (~95% — every `<img>` in the codebase already carries an `alt`), so that item is downgraded to ✅ already present.
+
+| # | Item | Status | Notes |
+|---|---|---|---|
+| 1 | JSON-LD schema (InsuranceAgency / Service / FAQPage / BreadcrumbList / BlogPosting / Blog / WebSite) | ✅ applied | See files below |
+| 2 | sitemap.xml via `app/sitemap.ts` | ✅ applied | `src/app/sitemap.ts` |
+| 3 | robots.txt via `app/robots.ts` | ✅ applied | `src/app/robots.ts` |
+| 4 | Open Graph + Twitter Card meta tags (root + per page) | ✅ applied | layout + about + services + claims + contact |
+| 5 | Image alt-text ≥ 90% coverage | ⏭️ already present | Re-audit shows every `<img>` in `src/app/**` carries an `alt`. Original 25%-coverage finding was stale. |
+| 6 | Custom 404 (`app/not-found.tsx`) | ✅ applied | `src/app/not-found.tsx` (auto-returns HTTP 404 in Next.js App Router) |
+| 7 | Canonical tags (bonus) | ✅ applied | `alternates.canonical` on every page metadata export |
+
+### Files created
+- `src/app/sitemap.ts` — enumerates 6 static routes + 3 blog posts (sourced from `src/lib/blog.ts`)
+- `src/app/robots.ts` — allow all, disallow `/api/`, `/_next/`, `/admin/`, references sitemap
+- `src/app/not-found.tsx` — branded 404 with return-home / contact CTAs and `robots: noindex,nofollow`
+
+### Files modified
+- `src/app/layout.tsx` — added `metadataBase`, root `openGraph`, `twitter`, `robots`, canonical, plus inline `<script type="application/ld+json">` for `InsuranceAgency` (full org profile incl. address, hours, services catalog) and `WebSite` schemas
+- `src/app/about/page.tsx` — added `openGraph`, `twitter`, canonical to metadata export
+- `src/app/services/page.tsx` — added page metadata block (OG/Twitter/canonical) + ItemList of 4 `Service` schemas injected via inline JSON-LD
+- `src/app/claims/page.tsx` — added page metadata block (OG/Twitter/canonical) + `FAQPage` schema (4 Q&As with answers authored from page content) + `BreadcrumbList`
+- `src/app/contact/page.tsx` — added `openGraph`, `twitter`, canonical
+- `src/app/blog/page.tsx` — `Blog` schema listing all posts + `BreadcrumbList` (page is `"use client"`, schema injected inline)
+- `src/app/blog/[slug]/page.tsx` — per-post `BlogPosting` schema with author/publisher/dates + 3-level `BreadcrumbList`
+
+### Notes / blockers
+- `/og-image.png` is referenced in OG metadata but the file is not yet present in `public/`. Recommend designing a 1200×630 brand image and dropping it there in a follow-up pass.
+- Site URL hardcoded to `https://bppinsurance.com` in sitemap/robots/layout/blog schemas. If staging deploys need a different canonical, lift to `NEXT_PUBLIC_SITE_URL`.
+- Blog pages are `"use client"` so we couldn't use the standard `export const metadata` route — JSON-LD is injected via inline `<script>` instead, which works for crawlers but page-level OG/Twitter tags for individual blog posts still inherit the root layout. Future improvement: split blog `[slug]` into a server component shell with `generateMetadata` and a client-only interactive sub-component.
+- No `node_modules` present in workspace, so no live `tsc --noEmit` run. Diffs are minimal, type-safe by inspection, and use existing Next 16 `MetadataRoute` + `Metadata` types.
+- No image alt-text changes needed — original audit overstated this gap.
+
