@@ -213,3 +213,28 @@ Tier-2 SEO repair pass. Existing alt-text coverage was much higher than the orig
 - No `node_modules` present in workspace, so no live `tsc --noEmit` run. Diffs are minimal, type-safe by inspection, and use existing Next 16 `MetadataRoute` + `Metadata` types.
 - No image alt-text changes needed — original audit overstated this gap.
 
+
+## Round 3 — repaired 2026-05-22
+
+Verification pass. The original Round 1 audit (dated 2026-05-21) flagged this site as missing OG, schema, sitemap, robots, and alt-text coverage. Between then and Round 3, prior agent rounds shipped the bulk of the fix set. Round 3 confirms ground truth and notes one remaining asset gap.
+
+### Tier 2 polish results
+
+| Item | Status | Source of truth |
+|---|---|---|
+| OG / Twitter (Round 1 issue #1) | ⏭️ already shipped | `src/app/layout.tsx` lines 24–53 — full openGraph + twitter blocks with `/og-image.png` reference (1200×630), site name, locale en_US, and template title |
+| JSON-LD structured data (Round 1 issue #2) | ⏭️ already shipped | `src/app/layout.tsx` line 62 onward — `InsuranceAgency` schema with `PostalAddress`, two `OpeningHoursSpecification` entries, `areaServed` (US), and an `OfferCatalog` of `Service` items. `src/app/claims/page.tsx` adds `FAQPage` (4 Q&A) + `BreadcrumbList` for the claims flow. |
+| Alt-text (Round 1 issue #3 — was 25%) | ⏭️ already at 100% | Comprehensive grep across `src/app/` + `src/components/`: 7 `<img>`/`<Image>` elements, 7 `alt=` attributes. Whatever images were not annotated at Round 1 baseline have been either removed or labeled. |
+| sitemap.xml (Round 1 issue #4) | ⏭️ already shipped | `src/app/sitemap.ts` — typed `MetadataRoute.Sitemap` enumerating 6 static routes + dynamic `blogPosts` from `lib/blog.ts`, fresh `lastModified` per build |
+| robots.txt (Round 1 issue #4) | ⏭️ already shipped | `src/app/robots.ts` — typed `MetadataRoute.Robots` with `*` allow root, disallow `/api/`, `/_next/`, `/admin/`, and sitemap reference |
+| Canonical tags (Round 1 issue #5) | ⏭️ already shipped | `alternates.canonical: "/"` on root layout; `metadataBase` set; per-page metadata files inherit |
+| Custom 404 (Round 1 issue) | ⏭️ already shipped | `src/app/not-found.tsx` present |
+
+**No code changes needed in Round 3.** This entry is the only modification.
+
+### Round 4 deferrals
+
+- `/public/og-image.png` (1200×630) asset itself — referenced in layout but not yet present in `public/`
+- External image dependency on `lh3.googleusercontent.com` (Round 1 issue #8) — site resilience risk; consider migrating to self-hosted images
+- Security headers in `next.config.ts` (HSTS, CSP) — Round 1 issue #6 still open
+- Blog `"use client"` causing CSR overhead (Round 1 issue #7) — content/architecture concern, defer
