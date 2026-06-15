@@ -1,0 +1,15 @@
+# BPP Insurance — Contractors Choice Agency
+Specialized contractor insurance for home, auto, life, and business coverage. Licensed in all 50 states.
+
+## Contact
+Phone: 844-967-5247
+Email: josh@contractorschoiceagency.com
+Address: 12220 E Riggs Road Suite #105, Chandler AZ 85249
+
+## Pages
+- / — Home
+- /about — About BPP Insurance
+- /services — Insurance Services
+- /claims — Claims
+- /blog — Blog
+- /contact — Contact Us
