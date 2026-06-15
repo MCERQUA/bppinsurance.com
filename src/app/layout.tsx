@@ -68,14 +68,15 @@ const organizationJsonLd = {
   description:
     "Family-owned insurance agency providing home, auto, life, and business coverage since 1998.",
   foundingDate: "1998",
-  telephone: "+1-555-123-4567",
-  email: "info@bppinsurance.com",
+  telephone: "+18449675247",
+  email: "josh@contractorschoiceagency.com",
+  founder: { "@type": "Person", name: "Josh Cotner" },
   address: {
     "@type": "PostalAddress",
-    streetAddress: "1234 Main Street, Suite 200",
-    addressLocality: "Springfield",
-    addressRegion: "IL",
-    postalCode: "62701",
+    streetAddress: "12220 E Riggs Road Suite #105",
+    addressLocality: "Chandler",
+    addressRegion: "AZ",
+    postalCode: "85249",
     addressCountry: "US",
   },
   openingHoursSpecification: [
