@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact BPP Insurance",
     description:
-      "Request a quote, ask a question, or visit our Springfield office.",
+      "Request a quote, ask a question, or visit our Chandler office.",
   },
 };
 
