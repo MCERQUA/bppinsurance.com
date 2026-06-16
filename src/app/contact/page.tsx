@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with BPP Insurance. Request a quote, ask a question, or visit our Springfield office.",
+    "Get in touch with BPP Insurance. Request a quote, ask a question, or visit our Chandler office.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact BPP Insurance",
     description:
-      "Request a quote, ask a question, or visit our Springfield office.",
+      "Request a quote, ask a question, or visit our Chandler office.",
     url: "/contact",
     type: "website",
   },
@@ -60,6 +60,7 @@ export default function ContactPage() {
             <form
               name="contact"
               method="POST"
+              action="https://josh.jam-bot.com/social-api/api/leads/webhook/netlify?tenant=josh&site=bppinsurance.com"
               data-netlify="true"
               netlify-honeypot="bot-field"
               className="space-y-8"
@@ -165,9 +166,9 @@ export default function ContactPage() {
                       Office Address
                     </h4>
                     <p className="text-navy-dark font-medium leading-relaxed">
-                      1234 Main Street, Suite 200
+                      12220 E Riggs Road Suite #105
                       <br />
-                      Springfield, IL 62701
+                      Chandler, AZ 85249
                     </p>
                   </div>
                 </div>
@@ -180,7 +181,7 @@ export default function ContactPage() {
                       Phone
                     </h4>
                     <p className="text-navy-dark font-medium text-lg">
-                      (555) 123-4567
+                      (844) 967-5247
                     </p>
                   </div>
                 </div>
@@ -193,7 +194,7 @@ export default function ContactPage() {
                       Email
                     </h4>
                     <p className="text-navy-dark font-medium underline underline-offset-4 decoration-gold">
-                      info@bppinsurance.com
+                      josh@contractorschoiceagency.com
                     </p>
                   </div>
                 </div>
@@ -231,10 +232,10 @@ export default function ContactPage() {
                 <div className="w-10 h-10 rounded-full bg-gold"></div>
                 <div>
                   <p className="text-white font-bold text-sm">
-                    Marcus Sterling
+                    Josh Cotner
                   </p>
                   <p className="text-gold text-xs uppercase tracking-widest">
-                    Founder &amp; CEO
+                    Founder &amp; Agent
                   </p>
                 </div>
               </div>
@@ -247,7 +248,7 @@ export default function ContactPage() {
       <section className="w-full bg-surface-low pt-24 pb-0">
         <div className="max-w-7xl mx-auto px-8 mb-12 flex items-baseline justify-between">
           <h2 className="text-4xl font-black text-navy-dark tracking-tight">
-            Visit Our Springfield Office
+            Visit Our Chandler Office
           </h2>
           <div className="hidden md:block h-px grow mx-8 bg-outline-variant/30"></div>
           <span className="hidden md:block text-xs uppercase tracking-widest text-on-surface-variant font-bold">

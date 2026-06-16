@@ -127,20 +127,20 @@ export default function Footer() {
           <ul className="space-y-4 text-sm text-slate-500">
             <li className="flex items-center gap-3">
               <span className="material-symbols-outlined text-gold">call</span>
-              (555) 123-4567
+              (844) 967-5247
             </li>
             <li className="flex items-center gap-3">
               <span className="material-symbols-outlined text-gold">mail</span>
-              info@bppinsurance.com
+              josh@contractorschoiceagency.com
             </li>
             <li className="flex items-start gap-3">
               <span className="material-symbols-outlined text-gold">
                 location_on
               </span>
               <span>
-                1234 Main Street, Suite 200
+                12220 E Riggs Road Suite #105
                 <br />
-                Springfield, IL 62701
+                Chandler, AZ 85249
               </span>
             </li>
           </ul>

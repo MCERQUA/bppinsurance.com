@@ -275,10 +275,10 @@ export default function ClaimsPage() {
                 urgent claims and emergency support.
               </p>
               <div className="text-3xl font-black tracking-tight mb-8">
-                (555) 123-4568
+                (844) 967-5247
               </div>
               <a
-                href="tel:5551234568"
+                href="tel:+18449675247"
                 className="w-full bg-gold text-[#241a00] py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold/90 transition-colors"
               >
                 <span className="material-symbols-outlined text-sm">call</span>
