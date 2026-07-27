@@ -240,6 +240,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                 <form
                   name="blog-comment"
                   method="POST"
+                  action="/__forms.html"
                   data-netlify="true"
                   netlify-honeypot="bot-field"
                   onSubmit={() => setFormSubmitted(true)}

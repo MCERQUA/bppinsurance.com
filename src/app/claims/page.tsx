@@ -160,6 +160,7 @@ export default function ClaimsPage() {
             <form
               name="claims"
               method="POST"
+              action="/__forms.html"
               data-netlify="true"
               netlify-honeypot="bot-field"
               encType="multipart/form-data"
