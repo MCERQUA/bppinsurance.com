@@ -3,13 +3,15 @@
 <head><title>Netlify Forms</title></head>
 <body>
 <!-- Netlify Forms pre-render declaration for Next.js -->
-<form name="contact" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="name" />
-  <input type="email" name="email" />
-  <input type="tel" name="phone" />
-  <input type="text" name="service" />
-  <textarea name="message"></textarea>
-  <input type="text" name="bot-field" />
+<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="contact" />
+  <input name="bot-field" />
+  <input name="name" />
+  <input name="email" />
+  <input name="phone" />
+  <input name="service" />
+  <input name="insurance-type" />
+  <input name="message" />
 </form>
 <form name="claims" netlify netlify-honeypot="bot-field" hidden>
   <input type="text" name="name" />
