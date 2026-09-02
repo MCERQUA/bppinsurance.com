@@ -145,7 +145,49 @@ export default function ContactPage() {
                   Submit Request
                 </button>
               </div>
-            </form>
+            
+        {/* complete contractor field set — forms-required-fields.json */}
+        <div className="mb-4">
+          <label className="block text-sm font-bold mb-1">Street address</label>
+          <input type="text" name="street_address" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-bold mb-1">City</label>
+          <input type="text" name="city" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-bold mb-1">State</label>
+          <input type="text" name="state" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-bold mb-1">ZIP code</label>
+          <input type="text" name="zip" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-bold mb-1">Federal Employer ID Number (FEIN)</label>
+          <input type="text" name="fein" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-bold mb-1">Year business started</label>
+          <input type="number" name="year_business_started" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-bold mb-1">Description of business</label>
+          <textarea name="business_description" rows={3}></textarea>
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-bold mb-1">Prior insurance carrier name</label>
+          <input type="text" name="prior_carrier_name" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-bold mb-1">Prior policy number</label>
+          <input type="text" name="prior_policy_number" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-bold mb-1">Prior policy expiration date</label>
+          <input type="date" name="prior_policy_expiration" />
+        </div>
+</form>
           </div>
 
           {/* Contact Info */}
