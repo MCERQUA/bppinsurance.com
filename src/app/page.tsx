@@ -227,60 +227,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 md:py-32 bg-surface-low overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative">
-          <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-5xl font-black text-navy-dark mb-6">
-              Voices of Confidence
-            </h2>
-            <div className="h-1 w-20 bg-gold mx-auto"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="bg-white p-10 rounded-xl relative shadow-sm border border-outline-variant/5"
-              >
-                <span className="material-symbols-outlined absolute -top-4 right-10 text-6xl text-surface-container opacity-50">
-                  format_quote
-                </span>
-                <div className="flex gap-1 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <span
-                      key={i}
-                      className="material-symbols-outlined text-sm text-gold"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                  ))}
-                </div>
-                <p className="text-navy-dark italic leading-relaxed mb-8">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      className="w-full h-full object-cover"
-                      alt={t.name}
-                      src={t.image}
-                    />
-                  </div>
-                  <div>
-                    <p className="font-bold text-navy-dark">{t.name}</p>
-                    <p className="text-xs text-on-surface-variant uppercase tracking-wider">
-                      {t.role}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-24 max-w-7xl mx-auto px-6">
         <div className="bg-navy-dark rounded-3xl p-12 md:p-20 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12">
