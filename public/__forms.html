@@ -13,14 +13,27 @@
   <input name="insurance-type" />
   <input name="message" />
 </form>
-<form name="claims" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="name" />
-  <input type="email" name="email" />
-  <input type="tel" name="phone" />
-  <input type="text" name="policy-number" />
-  <input type="text" name="claim-type" />
-  <textarea name="message"></textarea>
-  <input type="text" name="bot-field" />
+<form name="claims" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="claims" />
+  <input name="bot-field" />
+  <input name="name" />
+  <input name="email" />
+  <input name="phone" />
+  <input name="policy-number" />
+  <input name="claim-type" />
+  <input name="incident-date" />
+  <input name="description" />
+  <input name="documents" />
 </form>
+<form name="blog-comment" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="blog-comment" />
+  <input name="bot-field" />
+  <input name="post-slug" />
+  <input name="post-title" />
+  <input name="name" />
+  <input name="email" />
+  <input name="comment" />
+</form>
+
 </body>
 </html>
