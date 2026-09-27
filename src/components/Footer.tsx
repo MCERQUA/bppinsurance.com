@@ -28,7 +28,7 @@ export default function Footer() {
               </span>
             </a>
             <a
-              href="mailto:info@bppinsurance.com"
+              href="mailto:josh@contractorschoiceagency.com"
               className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center hover:bg-gold hover:text-white transition-all"
             >
               <span className="material-symbols-outlined text-lg">
