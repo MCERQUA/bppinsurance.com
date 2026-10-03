@@ -57,7 +57,7 @@ export default function BlogPage() {
       />
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-8 pt-32 pb-24 md:pb-32 relative overflow-hidden">
-        <div className="absolute -right-20 top-0 w-1/2 h-full bg-linear-to-l from-surface-high/30 to-transparent -z-10 rounded-full blur-3xl"></div>
+        <div className="absolute -right-20 top-0 w-1/2 h-full bg-surface-high/30 -z-10 rounded-full blur-3xl"></div>
         <h1 className="text-6xl md:text-8xl font-black text-navy-dark tracking-tighter leading-none mb-8">
           Insurance <br />
           <span className="text-gold">Insights</span>

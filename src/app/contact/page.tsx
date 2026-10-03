@@ -26,7 +26,7 @@ export default function ContactPage() {
       {/* Hero */}
       <header className="relative bg-navy-dark text-white pt-32 pb-48 px-8 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <div className="w-full h-full bg-linear-to-br from-navy to-navy-dark"></div>
+          <div className="w-full h-full bg-navy"></div>
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row items-end gap-6">
