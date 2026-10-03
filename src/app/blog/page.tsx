@@ -112,7 +112,7 @@ export default function BlogPage() {
                     {/* Featured Image */}
                     <Link href={`/blog/${post.slug}`} className="block">
                       <div className="aspect-[16/10] bg-surface-container overflow-hidden">
-                        <div className="w-full h-full bg-gradient-to-br from-navy-light/20 to-gold/20 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                        <div className="w-full h-full bg-navy-light/20 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
                           <span className="material-symbols-outlined text-6xl text-navy/30">
                             article
                           </span>

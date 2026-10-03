@@ -80,7 +80,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
       {/* Hero */}
       <section className="relative bg-navy-dark text-white pt-32 pb-24 overflow-hidden">
         <div className="absolute inset-0 opacity-30">
-          <div className="w-full h-full bg-gradient-to-br from-navy via-navy-dark to-navy-light"></div>
+          <div className="w-full h-full bg-navy"></div>
         </div>
         <div className="max-w-7xl mx-auto px-8 relative z-10">
           {/* Breadcrumb */}
@@ -134,7 +134,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
       {/* Featured Image */}
       <div className="w-full bg-surface-container">
         <div className="max-w-7xl mx-auto px-8 -mt-12">
-          <div className="aspect-[21/9] bg-gradient-to-br from-navy-light/30 to-gold/20 rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center">
+          <div className="aspect-[21/9] bg-navy-light/30 rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center">
             <span className="material-symbols-outlined text-[120px] text-navy/20">
               article
             </span>

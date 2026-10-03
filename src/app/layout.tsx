@@ -73,7 +73,7 @@ const organizationJsonLd = {
   founder: { "@type": "Person", name: "Josh Cotner" },
   address: {
     "@type": "PostalAddress",
-    streetAddress: "12220 E Riggs Road Suite #105",
+    streetAddress: "12220 E Riggs Rd, Suite #104",
     addressLocality: "Chandler",
     addressRegion: "AZ",
     postalCode: "85249",

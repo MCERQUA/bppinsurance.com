@@ -138,7 +138,7 @@ export default function Footer() {
                 location_on
               </span>
               <span>
-                12220 E Riggs Road Suite #105
+                12220 E Riggs Rd, Suite #104
                 <br />
                 Chandler, AZ 85249
               </span>

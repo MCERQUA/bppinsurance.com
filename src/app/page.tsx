@@ -48,33 +48,6 @@ const stats = [
   },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "Switching to BPP Insurance was the best financial decision I've made this year. Their team explained complex policies in simple terms.",
-    name: "James Wilson",
-    role: "Small Business Owner",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDLxX_Kd-ffBI6QWMfWYaUrDqYFcBN6lGlxHG58mXF1E9U7mmap27ZIyYxglsSTmYv73b2jcUJ-Xcse1ionGv4qzQHINjqzRhgedhufJvDuD9n3VdBu3fQEU48fKY6WlZ_cSdAjS7bVxVRNpEXH_1YyxbkB7VkAliTc8jvPDbPKXc7UmpO2VGvf7temHwYjWzjDcGQCPIGzw-Z0j9_oJQ1ESFV-1lHuELL8byETGI4_msKDZIDc1UPe6UIRyu7XmMhi73pbaN_Y2Q",
-  },
-  {
-    quote:
-      "The claims process was seamless. I never thought I'd say this about insurance, but they actually care about their clients.",
-    name: "Sarah Sterling",
-    role: "Homeowner",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBDmSy8WQs8LQAw6fi0Ym1XWueEPKR1rGfftPsRR9C5Pv2oHqdisXttMNNn5mceHV65ygRaVnqHuEmjfXBRAadalsvGXqvqgYVHyJpXJJrRX8r27569r5HAxEMxk_KGKpoxhwsIZX2YuBgrSqtfAzV5p1jXOD5ZzCarVJYTYRDB86tGXyPJlCMpaShOEl35ZhFrhtVoXJRmVzNdruVJmE0dN3OCOkZWfJLCgLrttfIVWDcXGnQnI-f4EV6I6ev7UiOEz60i-zPARw",
-  },
-  {
-    quote:
-      "Peace of mind is hard to buy, but BPP Insurance comes close. Their 24/7 support is remarkably fast and incredibly helpful.",
-    name: "Michael Chen",
-    role: "Fleet Manager",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCfmMSmXWxnGzUk-wQcD8YW5M1JGJ3tWHYE6QuVK-xAeYyVX6Vzew8vLuzY_kYG3q6LfuK7E4CKIIDgOcoLsnqHPNjpWiPo0sIjGHbQiq6Qcpm1Z0PFf-pnMU_EMg5lKt04sZ5UlXpqYK6RZ8KLgDYSiGDonrpfCP06p3zsUV0k51Jl4iuofQQ1OYIrasjnRHF95IolqA4Vh6gpv1fadSJ5YMs0sKvOC-c8AgIJUG0nDWZwT3Ec0ZajO0tc39O7Wb_1TfQJl83iJw",
-  },
-];
-
 export default function HomePage() {
   return (
     <>
