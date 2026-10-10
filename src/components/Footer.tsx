@@ -149,7 +149,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-sm text-slate-400">
-          &copy; {new Date().getFullYear()} BPP Insurance. The Modern Guardian
+          &copy; {new Date().getFullYear()} BPP Insurance · A Contractors Choice Agency Brand · NPN #8608479 · Licensed in all 50 states. The Modern Guardian
           of your future.
         </p>
         <span className="text-xs text-slate-400 flex items-center gap-2">
