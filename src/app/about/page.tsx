@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About BPP Insurance",
     description:
-      "Family-owned insurance agency since 1998. Meet the team behind your protection.",
+      "Family-owned insurance agency since 1998.",
     url: "/about",
     type: "website",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About BPP Insurance",
     description:
-      "Family-owned insurance agency since 1998. Meet the team behind your protection.",
+      "Family-owned insurance agency since 1998.",
   },
 };
 
@@ -39,37 +39,6 @@ const values = [
     title: "Community Commitment",
     description:
       "We aren't just in the community; we're part of it. We actively support local initiatives and organizations that make our neighborhoods stronger.",
-  },
-];
-
-const team = [
-  {
-    name: "Jonathan Bennett",
-    title: "CEO",
-    bio: "With 30 years in risk management, Jonathan leads with a vision of ethical insurance.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAbbj0bIprND-UfUaykb-YYLcbIp0tjDz0CYeyOeeii-MXbXUXhfQoK6ZRm7hk2mKyA499ieHIlOKrylM-Gf1SuvqeYzhEehDamZLMdJCv6GEtusywz_Tq_0ZjQe-MtQklR-qPHb-Zvtzi0-ffgNYUFTbOlzCNp6qyLWAL96Gp6vtyL5AP7LEZTvJxDQc7thfbe3bPRzaw7LN6XPVOdJKxDQRvqJR0y1KJxPyydBY2j75KaYFHO2GJnnr_G6HesUsMRM6p5jHF-mw",
-  },
-  {
-    name: "Sarah Pierce",
-    title: "VP Operations",
-    bio: "Sarah ensures our internal engines run smoothly, prioritizing efficiency for our clients.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB80YOnprcne5cxRgednwnHzXiLL789Zz4shYh63X-UM16z1zKghrB_LFZGs7OcDi9BI_qA--gVn9GuhzIe1ErsX29YpQqQZPXn3U1ossJbiJjuMZ68vMINoaG7uFFy0I3Q6lnpSLgqYg9aVEumSmxjDa5W7NWrgtpSXFkG3G4VNHvP-KXVysD_kmdSfvxwx1BlRj-4IZEEH8gvCjkGQwMpJkXhIPyHGE2KnSfFsv4dBbbb40lrd4Y8b-tlye_IEXCIIsp13j2JkQ",
-  },
-  {
-    name: "Marcus Vane",
-    title: "Senior Agent",
-    bio: "Marcus has helped thousands of families find the perfect balance of coverage and value.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC-Y4MyRpIfrN4Hf9EPKrO_YcyeICImwavV-3W7fucuTDwZjqLmEBrZW9DOuJLhVCR6cHAnCFGwwedqqljDmKpg_zuvm32D1QQWG34Yd8AJqROrV4gq1syrcgcmc7AvRIoIXfwmSx75uqw7kzN021itXlBFkkuyKHVp6eDkSgnZVUz-F5bAwcjQz1kV3e_lZ6qQR3JlH-2iPvD0WLCI9UTVMFMDZuU17H0DEVcBEw6dV7uEfi2tQzbyQAaWt-V4-x1GG7vlRbPhGQ",
-  },
-  {
-    name: "Elena Rodriguez",
-    title: "Claims Director",
-    bio: "Elena stands by our clients during their most difficult moments, advocating for quick resolution.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDshJDBM-SAcSjtu-3Az1NhMEUpiTa_PbLQuakk2QptEJ2jK7zOeopETcmJhjsDEqqTdpOLQjbYpt1Z9dDkdJq-E4ViBf4mOYSQY0PUElyL_4PJs55WoR-qET9TWwl-t1mX-bo0OIzBaQBjbCFM30GYALXVDay1MzBnBFHwtT0TpoxAYvHA2Mb2px2_Rga8fXteX4NMESoGOkcIcKRE9ZtJ5wTztbXq3fIFRcXPRHNppFtmBSB-py8EXWYS7yfPa0uTjNlJUo_ocg",
   },
 ];
 
@@ -171,48 +140,6 @@ export default function AboutPage() {
                 </h3>
                 <p className="text-on-surface-variant leading-relaxed">
                   {value.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="py-24 bg-surface-low">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-black text-navy-dark tracking-tighter">
-                Meet Our Team
-              </h2>
-              <p className="text-on-surface-variant mt-4 text-xl">
-                The experts behind your protection.
-              </p>
-            </div>
-            <div className="hidden md:block">
-              <div className="h-[2px] w-32 bg-gold"></div>
-            </div>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member) => (
-              <div key={member.name} className="group">
-                <div className="aspect-[3/4] rounded-xl overflow-hidden mb-6 relative">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                    alt={member.name}
-                    src={member.image}
-                  />
-                </div>
-                <h4 className="text-xl font-bold text-navy-dark">
-                  {member.name}
-                </h4>
-                <p className="text-gold font-semibold text-sm tracking-wider uppercase mb-3">
-                  {member.title}
-                </p>
-                <p className="text-on-surface-variant text-sm leading-relaxed">
-                  {member.bio}
                 </p>
               </div>
             ))}
