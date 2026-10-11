@@ -27,9 +27,8 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
     datePublished: post.date,
     dateModified: post.date,
     author: {
-      "@type": "Person",
+      "@type": "Organization",
       name: post.author,
-      jobTitle: post.authorRole,
     },
     publisher: {
       "@type": "Organization",

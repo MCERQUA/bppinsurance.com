@@ -45,8 +45,8 @@ export const blogPosts: BlogPost[] = [
 <p>While this list covers the essentials, every business has unique risks. A comprehensive risk assessment with an experienced insurance professional will help identify coverages specific to your industry and operations.</p>
 <p>Don't wait until disaster strikes to review your coverage. Take action today and ensure your business has the protection it deserves.</p>
     `,
-    author: "Marcus Sterling",
-    authorRole: "Founder & CEO",
+    author: "Contractors Choice Agency",
+    authorRole: "Insurance Agency",
     date: "March 15, 2026",
     readTime: "6 min read",
     category: "Business Insurance",
@@ -114,8 +114,8 @@ export const blogPosts: BlogPost[] = [
 <p>A successful claims experience starts before the incident occurs. Maintain good records, understand your coverage, and communicate proactively with your insurer. When disaster strikes, you'll be prepared to navigate the process with confidence.</p>
 <p>Need help understanding your coverage or filing a claim? Our team is available 24/7 to guide you through every step.</p>
     `,
-    author: "Sarah Mitchell",
-    authorRole: "Claims Director",
+    author: "Contractors Choice Agency",
+    authorRole: "Insurance Agency",
     date: "March 8, 2026",
     readTime: "5 min read",
     category: "Claims Guide",
@@ -197,8 +197,8 @@ export const blogPosts: BlogPost[] = [
 <p>Workers' compensation isn't just about compliance—it's about protecting your most valuable asset: your people. A well-managed workers' comp program demonstrates your commitment to employee wellbeing while safeguarding your business from significant financial risk.</p>
 <p>Ready to review your coverage or explore options? Our specialists can help you find the right policy for your business.</p>
     `,
-    author: "David Chen",
-    authorRole: "Commercial Insurance Specialist",
+    author: "Contractors Choice Agency",
+    authorRole: "Insurance Agency",
     date: "February 28, 2026",
     readTime: "7 min read",
     category: "Workers Compensation",

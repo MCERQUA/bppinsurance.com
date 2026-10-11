@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | BPP Insurance",
   },
   description:
-    "Your trusted insurance partner for home, auto, life, and business coverage. Personalized protection since 1998.",
+    "Your trusted insurance partner for home, auto, life, and business coverage. Personalized protection.",
   alternates: {
     canonical: "/",
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "BPP Insurance",
     title: "BPP Insurance | Protecting What Matters Most",
     description:
-      "Your trusted insurance partner for home, auto, life, and business coverage. Personalized protection since 1998.",
+      "Your trusted insurance partner for home, auto, life, and business coverage. Personalized protection.",
     url: SITE_URL,
     locale: "en_US",
     images: [
@@ -66,8 +66,7 @@ const organizationJsonLd = {
   logo: `${SITE_URL}/og-image.png`,
   image: `${SITE_URL}/og-image.png`,
   description:
-    "Family-owned insurance agency providing home, auto, life, and business coverage since 1998.",
-  foundingDate: "1998",
+    "Insurance agency providing home, auto, life, and business coverage.",
   telephone: "+18449675247",
   email: "josh@contractorschoiceagency.com",
   founder: { "@type": "Person", name: "Josh Cotner" },

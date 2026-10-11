@@ -56,7 +56,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 z-10">
             <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.1em] text-gold bg-surface-high rounded-full uppercase">
-              Est. 1998 &bull; Professional Protection
+              Professional Protection
             </span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-navy-dark leading-[0.9] tracking-tight mb-8">
               Protecting <br />

@@ -33,7 +33,7 @@ export default function BlogPage() {
       headline: post.title,
       url: `${siteUrl}/blog/${post.slug}`,
       datePublished: post.date,
-      author: { "@type": "Person", name: post.author },
+      author: { "@type": "Organization", name: post.author },
     })),
   };
   const breadcrumbJsonLd = {

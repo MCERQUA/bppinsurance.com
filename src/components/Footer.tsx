@@ -9,8 +9,7 @@ export default function Footer() {
             BPP Insurance
           </span>
           <p className="text-sm leading-relaxed text-slate-500 mb-8 max-w-xs">
-            The Modern Guardian of your future. Providing premium protection
-            since 1998.
+            The Modern Guardian of your future. Providing premium protection.
           </p>
           <div className="flex gap-4">
             <a

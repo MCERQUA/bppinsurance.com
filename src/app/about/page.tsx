@@ -4,12 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about BPP Insurance — a family-owned agency providing trusted, personalized insurance since 1998.",
+    "Learn about BPP Insurance — an agency providing trusted, personalized insurance.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About BPP Insurance",
     description:
-      "Family-owned insurance agency since 1998.",
+      "Insurance agency.",
     url: "/about",
     type: "website",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About BPP Insurance",
     description:
-      "Family-owned insurance agency since 1998.",
+      "Insurance agency.",
   },
 };
 
@@ -58,14 +58,11 @@ export default function AboutPage() {
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-8">
           <div className="max-w-2xl">
-            <span className="font-bold tracking-[0.2em] text-gold uppercase mb-4 block text-sm">
-              Est. 1998
-            </span>
             <h1 className="text-6xl md:text-8xl font-black text-navy-dark tracking-tighter leading-none mb-6">
               About BPP Insurance
             </h1>
             <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed max-w-xl">
-              Trusted protection since 1998. We redefine the guardian&apos;s role
+              Trusted protection. We redefine the guardian&apos;s role
               in a digital era.
             </p>
           </div>
@@ -81,10 +78,8 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-6 text-lg text-on-surface-variant leading-relaxed">
               <p>
-                Since our founding in 1998, BPP Insurance has been more than just
-                a provider; we&apos;ve been a steadfast partner to families and
-                businesses across the country. Our roots as a family-owned agency
-                remain at the heart of everything we do.
+                BPP Insurance has been more than just a provider; we&apos;ve been
+                a steadfast partner to families and businesses across the country.
               </p>
               <p>
                 We believe that insurance is personal. It&apos;s about protecting
