@@ -60,7 +60,7 @@ export default function ContactPage() {
             <form
               name="contact"
               method="POST"
-              action="https://josh.jam-bot.com/social-api/api/leads/webhook/netlify?tenant=josh&site=bppinsurance.com"
+              action="/contact-thanks.html"
               data-netlify="true"
               netlify-honeypot="bot-field"
               className="space-y-8"
