@@ -194,7 +194,7 @@ export default function ServicesPage() {
                   ))}
                 </ul>
                 <Link
-                  href="/contact"
+                  href="/quote"
                   className="bg-linear-to-r from-gold to-gold-dark text-[#241a00] px-8 py-4 rounded-md font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg inline-block"
                 >
                   Request a Quote

@@ -43,7 +43,7 @@ export default function Navbar() {
       </div>
 
       <Link
-        href="/contact"
+        href="/quote"
         className="bg-linear-to-r from-gold to-gold-dark text-[#241a00] px-6 py-2.5 rounded-md font-semibold text-sm active:scale-95 transform transition-transform shadow-lg shadow-amber-600/20"
       >
         Get a Quote

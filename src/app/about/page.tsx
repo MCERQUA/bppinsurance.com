@@ -156,7 +156,7 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
               <Link
-                href="/contact"
+                href="/quote"
                 className="bg-gold text-[#241a00] px-10 py-4 rounded-md font-bold text-lg hover:opacity-90 transition-opacity inline-block"
               >
                 Get Your Quote

@@ -391,7 +391,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                   for your needs.
                 </p>
                 <Link
-                  href="/contact"
+                  href="/quote"
                   className="inline-flex items-center gap-2 bg-gold text-[#241a00] px-6 py-3 rounded-xl font-bold text-sm hover:bg-gold-light transition-colors"
                 >
                   <span className="material-symbols-outlined text-sm">call</span>

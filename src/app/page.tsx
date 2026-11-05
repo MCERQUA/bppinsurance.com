@@ -70,7 +70,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/contact"
+                href="/quote"
                 className="bg-linear-to-r from-gold to-gold-dark text-[#241a00] px-8 py-4 rounded-md font-bold text-lg active:scale-95 transform transition-all hover:shadow-2xl hover:shadow-amber-600/30"
               >
                 Get a Free Quote
@@ -214,7 +214,7 @@ export default function HomePage() {
           </div>
           <div className="relative z-10">
             <Link
-              href="/contact"
+              href="/quote"
               className="bg-linear-to-r from-gold to-gold-dark text-[#241a00] px-12 py-5 rounded-md font-bold text-xl active:scale-95 transform transition-all shadow-xl shadow-black/20 inline-block"
             >
               Get Started Now
