@@ -25,7 +25,7 @@ const faqAnswers: Record<string, string> = {
   "How long does the average claim take?":
     "Most straightforward claims are reviewed within 24 hours and resolved within 7–14 business days. Complex claims involving significant damage or third parties may take longer.",
   "What documents do I need for my submission?":
-    "Typically you'll need your policy number, photos of the damage, a written description of the incident, any police or incident reports, and receipts for affected items if available.",
+    "Typically you'll need your insurance carrier's name, photos of the damage, a written description of the incident, any police or incident reports, and receipts for affected items if available.",
   "Can I choose my own repair shop?":
     "Yes. You are free to choose your preferred repair shop. Our network shops offer guaranteed work and direct billing, but the choice is always yours.",
   "How will I receive my settlement?":
@@ -175,12 +175,12 @@ export default function ClaimsPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
-                    Policy Number
+                    Insurance Carrier Name
                   </label>
                   <input
-                    name="policy-number"
+                    name="carrier-name"
                     className="w-full bg-transparent border-0 border-b-2 border-outline-variant/20 focus:ring-0 focus:border-gold transition-all py-3 px-0 text-navy-dark placeholder:text-outline/40"
-                    placeholder="BP-XXXX-XXXX"
+                    placeholder="Carrier name"
                     type="text"
                     required
                   />
@@ -306,7 +306,7 @@ export default function ClaimsPage() {
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
-                  Date of Incident
+                  Date of Claim / Incident
                 </label>
                 <input
                   name="incident-date"

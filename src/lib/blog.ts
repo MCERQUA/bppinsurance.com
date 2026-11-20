@@ -77,7 +77,7 @@ export const blogPosts: BlogPost[] = [
 <h2>Step 3: Contact Your Insurance Company Promptly</h2>
 <p>Report the incident to your insurer as soon as possible. Most policies require timely reporting. When you call:</p>
 <ul>
-  <li>Have your policy number ready</li>
+  <li>Have your carrier name ready</li>
   <li>Provide a clear, factual account of the incident</li>
   <li>Ask for your claim number and the name of your claims adjuster</li>
   <li>Confirm what's needed to proceed</li>
