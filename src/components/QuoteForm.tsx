@@ -84,6 +84,42 @@ const TEXT_YN: { name: string; question: string; explainMax?: number }[] = [
   { name: "business_q_promo_literature_safety_claims", question: "Does the business' promotional literature make any representation about the safety or security of the premises?", explainMax: 136 },
 ];
 
+function RadioPair({
+  name,
+  defaultValue,
+  onAnswer,
+}: {
+  name: string;
+  defaultValue?: "Y" | "N";
+  onAnswer?: (name: string, isYes: boolean) => void;
+}) {
+  return (
+    <span className="flex items-center gap-6 text-sm text-navy-dark">
+      <label className="flex items-center gap-2">
+        <input
+          type="radio"
+          name={name}
+          value="Y"
+          defaultChecked={defaultValue === "Y"}
+          onChange={() => onAnswer?.(name, true)}
+        />
+        Yes
+      </label>
+      <label className="flex items-center gap-2">
+        <input
+          type="radio"
+          name={name}
+          value="N"
+          defaultChecked={defaultValue === "N"}
+          onChange={() => onAnswer?.(name, false)}
+        />
+        No
+      </label>
+    </span>
+  );
+}
+
+// Y/N question as a radio pair (replaces the old lone checkbox: tick = Yes, clear = No).
 function CheckboxYNField({
   name,
   question,
@@ -94,15 +130,10 @@ function CheckboxYNField({
   onAnswer: (name: string, checked: boolean) => void;
 }) {
   return (
-    <label className="flex items-start gap-3 py-2 text-sm text-navy-dark">
-      <input
-        type="checkbox"
-        name={name}
-        className="mt-1"
-        onChange={(e) => onAnswer(name, e.target.checked)}
-      />
+    <div className="flex flex-col gap-2 py-2 text-sm text-navy-dark">
       <span>{question}</span>
-    </label>
+      <RadioPair name={name} onAnswer={onAnswer} />
+    </div>
   );
 }
 
@@ -440,14 +471,13 @@ export default function QuoteForm() {
               <input name="business_location_description" className={input} type="text" maxLength={54} placeholder="Retail storefront, no on-site manufacturing" />
             </div>
 
-            <label className="flex items-start gap-3 py-2 text-sm text-navy-dark">
-              <input
-                type="checkbox"
-                className="mt-1"
-                onChange={(e) => setLocationDifferent(e.target.checked)}
+            <div className="flex flex-col gap-2 py-2 text-sm text-navy-dark">
+              <span>Is the business location different from the mailing address entered above?</span>
+              <RadioPair
+                name="business_location_different_from_mailing"
+                onAnswer={(_n, isYes) => setLocationDifferent(isYes)}
               />
-              <span>The business location is different from the mailing address entered above</span>
-            </label>
+            </div>
             {locationDifferent && (
               <div className="space-y-8 pl-4 border-l-2 border-gold/40">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -531,7 +561,7 @@ export default function QuoteForm() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className={fieldWrap}>
-              <label className={label}>Federal Employer ID Number (FEIN) / SSN</label>
+              <label className={label}>FEIN</label>
               <input name="business_fein" className={input} type="text" placeholder="12-3456789" />
             </div>
             <div className={fieldWrap}>
@@ -558,6 +588,10 @@ export default function QuoteForm() {
               <input name="business_num_employees" className={input} type="number" placeholder="3" />
             </div>
           </div>
+          <div className={fieldWrap}>
+            <label className={label}>Annual Payroll ($)</label>
+            <input name="annualPayroll" className={input} type="text" inputMode="numeric" placeholder="$150,000" />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className={fieldWrap}>
               <label className={label}>Desired Coverage Limits (overall)</label>
@@ -574,10 +608,10 @@ export default function QuoteForm() {
             <h4 className="text-xs font-bold uppercase tracking-widest text-navy-dark/70">
               General Liability Coverage
             </h4>
-            <label className="flex items-start gap-3 py-2 text-sm text-navy-dark">
-              <input type="checkbox" name="business_gl_coverage_requested" defaultChecked className="mt-1" />
-              <span>I am requesting General Liability coverage for this business</span>
-            </label>
+            <div className="flex flex-col gap-2 py-2 text-sm text-navy-dark">
+              <span>Are you requesting General Liability coverage for this business?</span>
+              <RadioPair name="business_gl_coverage_requested" defaultValue="Y" />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className={fieldWrap}>
                 <label className={label}>GL Coverage Trigger</label>
@@ -801,6 +835,75 @@ export default function QuoteForm() {
                 </div>
               </div>
             )}
+          </div>
+
+          {/* Loss history rows (CCA canonical loss1..3) */}
+          <div className="space-y-6 pt-6 border-t border-outline-variant/20">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-navy-dark/70">
+              Loss History (list each loss, up to 3)
+            </h4>
+            {[1, 2, 3].map((n) => (
+              <div key={n} className="space-y-4">
+                <p className={label}>Loss {n}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className={fieldWrap}>
+                    <label className={label}>Date of Loss</label>
+                    <input name={`loss${n}Date`} className={input} type="date" />
+                  </div>
+                  <div className={fieldWrap}>
+                    <label className={label}>Line of Business</label>
+                    <input name={`loss${n}LineOfBusiness`} className={input} type="text" placeholder="General Liability" />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className={fieldWrap}>
+                    <label className={label}>Amount ($)</label>
+                    <input name={`loss${n}Amount`} className={input} type="text" placeholder="$0" />
+                  </div>
+                  <div className={fieldWrap}>
+                    <label className={label}>Status</label>
+                    <select name={`loss${n}Status`} className={`${input} appearance-none`} defaultValue="">
+                      <option value="">Select one</option>
+                      <option value="Open">Open</option>
+                      <option value="Closed">Closed</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Additional insured / certificate holder (CCA canonical) */}
+          <div className="space-y-8 pt-6 border-t border-outline-variant/20">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-navy-dark/70">
+              Additional Insured / Certificate Holder
+            </h4>
+            <div className={fieldWrap}>
+              <label className={label}>Additional Insured Name</label>
+              <input name="additionalInsuredName" className={input} type="text" />
+            </div>
+            <div className={fieldWrap}>
+              <label className={label}>Additional Insured Address</label>
+              <input name="additionalInsuredAddress" className={input} type="text" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className={fieldWrap}>
+                <label className={label}>City</label>
+                <input name="additionalInsuredCity" className={input} type="text" />
+              </div>
+              <div className={fieldWrap}>
+                <label className={label}>State</label>
+                <input name="additionalInsuredState" className={input} type="text" />
+              </div>
+              <div className={fieldWrap}>
+                <label className={label}>ZIP</label>
+                <input name="additionalInsuredZip" className={input} type="text" />
+              </div>
+            </div>
+            <div className={fieldWrap}>
+              <label className={label}>Certificate Needed By</label>
+              <input name="certificateNeededBy" className={input} type="date" />
+            </div>
           </div>
         </div>
       )}

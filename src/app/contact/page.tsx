@@ -164,7 +164,7 @@ export default function ContactPage() {
           <input type="text" name="zip" />
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-bold mb-1">Federal Employer ID Number (FEIN)</label>
+          <label className="block text-sm font-bold mb-1">FEIN</label>
           <input type="text" name="fein" />
         </div>
         <div className="mb-4">
@@ -178,10 +178,6 @@ export default function ContactPage() {
         <div className="mb-4">
           <label className="block text-sm font-bold mb-1">Prior insurance carrier name</label>
           <input type="text" name="prior_carrier_name" />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-bold mb-1">Prior policy number</label>
-          <input type="text" name="prior_policy_number" />
         </div>
         <div className="mb-4">
           <label className="block text-sm font-bold mb-1">Prior policy expiration date</label>

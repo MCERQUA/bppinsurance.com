@@ -19,7 +19,6 @@
   <input name="year_business_started" />
   <input name="business_description" />
   <input name="prior_carrier_name" />
-  <input name="prior_policy_number" />
   <input name="prior_policy_expiration" />
 </form>
 <form name="claims" data-netlify="true" netlify-honeypot="bot-field" hidden>
@@ -105,7 +104,7 @@
   <input name="business_billing_plan" />
   <input name="business_premises_interest" />
   <input name="business_location_city_limits" />
-  <input type="checkbox" name="business_gl_coverage_requested" />
+  <input type="radio" name="business_gl_coverage_requested" value="Y" /><input type="radio" name="business_gl_coverage_requested" value="N" />
   <input name="business_gl_trigger" />
   <input name="business_gl_aggregate_applies" />
   <input name="business_gl_general_aggregate_limit" />
@@ -118,42 +117,42 @@
   <input name="business_subcontracted_work_percent" />
   <input name="business_q_property_coverage_requested" />
   <textarea name="business_q_property_coverage_requested_explanation"></textarea>
-  <input type="checkbox" name="business_q_subsidiary" />
+  <input type="radio" name="business_q_subsidiary" value="Y" /><input type="radio" name="business_q_subsidiary" value="N" />
   <textarea name="business_q_subsidiary_explanation"></textarea>
-  <input type="checkbox" name="business_q_has_subsidiaries" />
+  <input type="radio" name="business_q_has_subsidiaries" value="Y" /><input type="radio" name="business_q_has_subsidiaries" value="N" />
   <textarea name="business_q_has_subsidiaries_explanation"></textarea>
-  <input type="checkbox" name="business_q_safety_programs" />
+  <input type="radio" name="business_q_safety_programs" value="Y" /><input type="radio" name="business_q_safety_programs" value="N" />
   <input type="checkbox" name="business_safety_manual" />
   <input type="checkbox" name="business_safety_dedicated_position" />
   <input type="checkbox" name="business_safety_monthly_meetings" />
   <input type="checkbox" name="business_safety_osha" />
   <input type="checkbox" name="business_safety_other" />
   <input name="business_safety_other_description" />
-  <input type="checkbox" name="business_q_exposure_flammables" />
+  <input type="radio" name="business_q_exposure_flammables" value="Y" /><input type="radio" name="business_q_exposure_flammables" value="N" />
   <textarea name="business_q_exposure_flammables_explanation"></textarea>
-  <input type="checkbox" name="business_q_other_insurance" />
+  <input type="radio" name="business_q_other_insurance" value="Y" /><input type="radio" name="business_q_other_insurance" value="N" />
   <textarea name="business_q_other_insurance_explanation"></textarea>
-  <input type="checkbox" name="business_q_coverage_terminated" />
+  <input type="radio" name="business_q_coverage_terminated" value="Y" /><input type="radio" name="business_q_coverage_terminated" value="N" />
   <textarea name="business_q_coverage_terminated_explanation"></textarea>
-  <input type="checkbox" name="business_q_past_allegations" />
+  <input type="radio" name="business_q_past_allegations" value="Y" /><input type="radio" name="business_q_past_allegations" value="N" />
   <textarea name="business_q_past_allegations_explanation"></textarea>
-  <input type="checkbox" name="business_q_indicted_convicted" />
+  <input type="radio" name="business_q_indicted_convicted" value="Y" /><input type="radio" name="business_q_indicted_convicted" value="N" />
   <textarea name="business_q_indicted_convicted_explanation"></textarea>
-  <input type="checkbox" name="business_q_safety_violations" />
+  <input type="radio" name="business_q_safety_violations" value="Y" /><input type="radio" name="business_q_safety_violations" value="N" />
   <textarea name="business_q_safety_violations_explanation"></textarea>
-  <input type="checkbox" name="business_q_negative_financial_action" />
+  <input type="radio" name="business_q_negative_financial_action" value="Y" /><input type="radio" name="business_q_negative_financial_action" value="N" />
   <textarea name="business_q_negative_financial_action_explanation"></textarea>
-  <input type="checkbox" name="business_q_judgement_lien" />
+  <input type="radio" name="business_q_judgement_lien" value="Y" /><input type="radio" name="business_q_judgement_lien" value="N" />
   <textarea name="business_q_judgement_lien_explanation"></textarea>
-  <input type="checkbox" name="business_q_trust" />
+  <input type="radio" name="business_q_trust" value="Y" /><input type="radio" name="business_q_trust" value="N" />
   <textarea name="business_q_trust_explanation"></textarea>
-  <input type="checkbox" name="business_q_foreign_operations" />
+  <input type="radio" name="business_q_foreign_operations" value="Y" /><input type="radio" name="business_q_foreign_operations" value="N" />
   <textarea name="business_q_foreign_operations_explanation"></textarea>
-  <input type="checkbox" name="business_q_other_ventures" />
+  <input type="radio" name="business_q_other_ventures" value="Y" /><input type="radio" name="business_q_other_ventures" value="N" />
   <textarea name="business_q_other_ventures_explanation"></textarea>
-  <input type="checkbox" name="business_q_possess_drones" />
+  <input type="radio" name="business_q_possess_drones" value="Y" /><input type="radio" name="business_q_possess_drones" value="N" />
   <textarea name="business_q_possess_drones_explanation"></textarea>
-  <input type="checkbox" name="business_q_hire_drones" />
+  <input type="radio" name="business_q_hire_drones" value="Y" /><input type="radio" name="business_q_hire_drones" value="N" />
   <textarea name="business_q_hire_drones_explanation"></textarea>
   <input name="business_q_leased_to_others" />
   <input name="business_q_excluded_uninsured_prior" />
@@ -244,6 +243,26 @@
   <input name="business_loss_amount_paid" />
   <input name="business_loss_amount_reserved" />
   <input name="business_loss_description" />
+  <input type="radio" name="business_location_different_from_mailing" value="Y" /><input type="radio" name="business_location_different_from_mailing" value="N" />
+  <input name="annualPayroll" />
+  <input name="loss1Date" />
+  <input name="loss1LineOfBusiness" />
+  <input name="loss1Amount" />
+  <input name="loss1Status" />
+  <input name="loss2Date" />
+  <input name="loss2LineOfBusiness" />
+  <input name="loss2Amount" />
+  <input name="loss2Status" />
+  <input name="loss3Date" />
+  <input name="loss3LineOfBusiness" />
+  <input name="loss3Amount" />
+  <input name="loss3Status" />
+  <input name="additionalInsuredName" />
+  <input name="additionalInsuredAddress" />
+  <input name="additionalInsuredCity" />
+  <input name="additionalInsuredState" />
+  <input name="additionalInsuredZip" />
+  <input name="certificateNeededBy" />
   <textarea name="additional_notes"></textarea>
 </form>
 
