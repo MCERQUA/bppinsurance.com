@@ -166,20 +166,30 @@ function TextYNField({
   );
 }
 
+// Explanations that are enforced as required (added 2026-11-21 ACORD describe pass); all others stay optional as before.
+const REQUIRED_EXPLAIN = new Set([
+  "business_q_leased_to_others",
+  "business_q_foreign_products",
+  "business_q_lodging_operations",
+  "business_q_athletic_teams",
+]);
+
 function ExplainIfYes({
   show,
   name,
   maxLength = 136,
+  required = false,
 }: {
   show: boolean;
   name: string;
   maxLength?: number;
+  required?: boolean;
 }) {
   if (!show) return null;
   return (
     <div className={`${fieldWrap} mb-2`}>
-      <label className={label}>Please explain (required to complete the application)</label>
-      <textarea name={name} className={`${input} resize-none`} rows={2} maxLength={maxLength} required />
+      <label className={label}>{required ? "Please explain (required to complete the application)" : "Please explain"}</label>
+      <textarea name={name} className={`${input} resize-none`} rows={2} maxLength={maxLength} required={required} />
     </div>
   );
 }
@@ -866,7 +876,7 @@ export default function QuoteForm() {
                 )}
 
                 {q.explainMax && (
-                  <ExplainIfYes show={!!bizAnswers[q.name]} name={`${q.name}_explanation`} maxLength={q.explainMax} />
+                  <ExplainIfYes show={!!bizAnswers[q.name]} name={`${q.name}_explanation`} maxLength={q.explainMax} required={REQUIRED_EXPLAIN.has(q.name)} />
                 )}
               </div>
             ))}
