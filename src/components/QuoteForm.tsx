@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 type LOB = "Home" | "Auto" | "Life" | "Business";
 
@@ -41,7 +41,7 @@ const CHECKBOX_YN: { name: string; question: string; explain?: boolean }[] = [
 // `explainMax` = the "Max chars" from FIELDS.md's Follow-ups table where a named explanation
 // field exists for a Yes answer.
 const TEXT_YN: { name: string; question: string; explainMax?: number }[] = [
-  { name: "business_q_leased_to_others", question: "Is Building Leased to Others?" },
+  { name: "business_q_leased_to_others", question: "Is Building Leased to Others?", explainMax: 136 },
   { name: "business_q_excluded_uninsured_prior", question: "Has any product, work, accident or location been excluded, uninsured or self-insured from any previous coverage?", explainMax: 136 },
   { name: "business_q_tail_coverage", question: "Was tail coverage purchased under any previous policy?", explainMax: 136 },
   { name: "business_q_draws_plans", question: "Does applicant draw plans, designs or specifications for others?", explainMax: 136 },
@@ -51,7 +51,7 @@ const TEXT_YN: { name: string; question: string; explainMax?: number }[] = [
   { name: "business_q_subs_no_coi", question: "Are subcontractors allowed to work without providing you with a certificate of insurance?", explainMax: 136 },
   { name: "business_q_lease_equipment_to_others", question: "Does applicant lease equipment to others with or without operators?", explainMax: 136 },
   { name: "business_q_install_service_demo", question: "Does applicant install, service or demonstrate products?", explainMax: 136 },
-  { name: "business_q_foreign_products", question: "Foreign products, sold, distributed, used as components?" },
+  { name: "business_q_foreign_products", question: "Foreign products, sold, distributed, used as components?", explainMax: 136 },
   { name: "business_q_rd_new_products", question: "Research and development conducted or new products planned?", explainMax: 136 },
   { name: "business_q_guarantees_warranties", question: "Guarantees, warrantees, hold harmless agreements?", explainMax: 136 },
   { name: "business_q_aircraft_space_products", question: "Products related to aircraft/space industry?", explainMax: 136 },
@@ -69,10 +69,10 @@ const TEXT_YN: { name: string; question: string; explainMax?: number }[] = [
   { name: "business_q_parking_facilities", question: "Any parking facilities owned/rented?", explainMax: 136 },
   { name: "business_q_parking_fee", question: "Is a fee charged for parking?", explainMax: 136 },
   { name: "business_q_recreation_facilities", question: "Recreation facilities provided?", explainMax: 136 },
-  { name: "business_q_lodging_operations", question: "Are there any lodging operations including apartments?" },
+  { name: "business_q_lodging_operations", question: "Are there any lodging operations including apartments?", explainMax: 136 },
   { name: "business_q_swimming_pool", question: "Is there a swimming pool on the premises?" },
   { name: "business_q_social_events", question: "Are social events sponsored?", explainMax: 136 },
-  { name: "business_q_athletic_teams", question: "Are athletic teams sponsored?" },
+  { name: "business_q_athletic_teams", question: "Are athletic teams sponsored?", explainMax: 136 },
   { name: "business_q_structural_alterations", question: "Any structural alterations contemplated?", explainMax: 136 },
   { name: "business_q_demolition_exposure", question: "Any demolition exposure contemplated?", explainMax: 136 },
   { name: "business_q_joint_ventures_active", question: "Has applicant been active in or is currently active in joint ventures?", explainMax: 136 },
@@ -179,7 +179,68 @@ function ExplainIfYes({
   return (
     <div className={`${fieldWrap} mb-2`}>
       <label className={label}>Please explain (required to complete the application)</label>
-      <textarea name={name} className={`${input} resize-none`} rows={2} maxLength={maxLength} />
+      <textarea name={name} className={`${input} resize-none`} rows={2} maxLength={maxLength} required />
+    </div>
+  );
+}
+
+const localToday = () => {
+  const d = new Date();
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  return `${d.getFullYear()}-${mm}-${dd}`;
+};
+
+// Typed e-signature: full legal name (2+ words) + a date that must equal today (browser-local).
+function SignatureFields() {
+  const nameRef = useRef<HTMLInputElement>(null);
+  const dateRef = useRef<HTMLInputElement>(null);
+  const checkName = () => {
+    const el = nameRef.current;
+    if (!el) return;
+    const words = el.value.trim().split(/\s+/).filter(Boolean);
+    el.setCustomValidity(words.length < 2 ? "Type your full legal name (first and last) as your signature." : "");
+  };
+  const checkDate = () => {
+    const el = dateRef.current;
+    if (!el) return;
+    el.setCustomValidity(el.value && el.value !== localToday() ? "The signature date must be today's date." : "");
+  };
+  return (
+    <div className="space-y-8 pt-6 border-t border-outline-variant/20">
+      <h4 className="text-xs font-bold uppercase tracking-widest text-navy-dark/70">Signature</h4>
+      <p className="text-xs text-on-surface-variant -mt-6">
+        Type your full legal name as your electronic signature and enter today&apos;s date.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className={fieldWrap}>
+          <label className={label}>Applicant Signature (type your full legal name)</label>
+          <input
+            ref={nameRef}
+            name="applicantSignature"
+            className={input}
+            type="text"
+            maxLength={62}
+            autoComplete="off"
+            required
+            onInput={checkName}
+            onBlur={checkName}
+          />
+        </div>
+        <div className={fieldWrap}>
+          <label className={label}>Signature Date (today)</label>
+          <input
+            ref={dateRef}
+            name="signatureDate"
+            className={input}
+            type="date"
+            autoComplete="off"
+            required
+            onInput={checkDate}
+            onBlur={checkDate}
+          />
+        </div>
+      </div>
     </div>
   );
 }
@@ -200,6 +261,14 @@ export default function QuoteForm() {
       data-netlify="true"
       netlify-honeypot="bot-field"
       className="space-y-8"
+      onSubmit={(e) => {
+        const f = e.currentTarget;
+        const n = f.elements.namedItem("applicantSignature") as HTMLInputElement | null;
+        const d = f.elements.namedItem("signatureDate") as HTMLInputElement | null;
+        if (n) n.setCustomValidity(n.value.trim().split(/\s+/).filter(Boolean).length < 2 ? "Type your full legal name (first and last) as your signature." : "");
+        if (d) d.setCustomValidity(d.value && d.value !== localToday() ? "The signature date must be today's date." : "");
+        if (!f.checkValidity()) { e.preventDefault(); f.reportValidity(); }
+      }}
     >
       <input type="hidden" name="form-name" value="quote" />
       <p className="hidden">
@@ -905,6 +974,27 @@ export default function QuoteForm() {
               <input name="certificateNeededBy" className={input} type="date" />
             </div>
           </div>
+          {/* Exposures in the applicant's own words (required; "None" is an answer) */}
+          <div className="space-y-8 pt-6 border-t border-outline-variant/20">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-navy-dark/70">
+              Property &amp; Operations Exposures
+            </h4>
+            <p className="text-xs text-on-surface-variant -mt-6">
+              Please answer each in your own words. If none, write &quot;None&quot;.
+            </p>
+            {[
+              ["propertyProtectionDescription", "Describe the protection at your location: burglar/fire alarm (central station?), sprinklers, extinguishers, deadbolts, cameras (if none, write None)"],
+              ["offPremisesOperationsDescription", "Describe any work done away from your location: at customers' sites, deliveries, vehicles used, equipment taken off site (if none, write None)"],
+              ["publicCustomerExposureDescription", "Describe customer or public access to your location and any events, activities or hazards on site (if none, write None)"],
+            ].map(([n, l]) => (
+              <div key={n} className={fieldWrap}>
+                <label className={label}>{l}</label>
+                <textarea name={n} className={`${input} resize-none`} rows={3} maxLength={500} required />
+              </div>
+            ))}
+          </div>
+
+          <SignatureFields />
         </div>
       )}
 
