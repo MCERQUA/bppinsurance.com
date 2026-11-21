@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 type LOB = "Home" | "Auto" | "Life" | "Business";
 
@@ -194,67 +194,6 @@ function ExplainIfYes({
   );
 }
 
-const localToday = () => {
-  const d = new Date();
-  const mm = String(d.getMonth() + 1).padStart(2, "0");
-  const dd = String(d.getDate()).padStart(2, "0");
-  return `${d.getFullYear()}-${mm}-${dd}`;
-};
-
-// Typed e-signature: full legal name (2+ words) + a date that must equal today (browser-local).
-function SignatureFields() {
-  const nameRef = useRef<HTMLInputElement>(null);
-  const dateRef = useRef<HTMLInputElement>(null);
-  const checkName = () => {
-    const el = nameRef.current;
-    if (!el) return;
-    const words = el.value.trim().split(/\s+/).filter(Boolean);
-    el.setCustomValidity(words.length < 2 ? "Type your full legal name (first and last) as your signature." : "");
-  };
-  const checkDate = () => {
-    const el = dateRef.current;
-    if (!el) return;
-    el.setCustomValidity(el.value && el.value !== localToday() ? "The signature date must be today's date." : "");
-  };
-  return (
-    <div className="space-y-8 pt-6 border-t border-outline-variant/20">
-      <h4 className="text-xs font-bold uppercase tracking-widest text-navy-dark/70">Signature</h4>
-      <p className="text-xs text-on-surface-variant -mt-6">
-        Type your full legal name as your electronic signature and enter today&apos;s date.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className={fieldWrap}>
-          <label className={label}>Applicant Signature (type your full legal name)</label>
-          <input
-            ref={nameRef}
-            name="applicantSignature"
-            className={input}
-            type="text"
-            maxLength={62}
-            autoComplete="off"
-            required
-            onInput={checkName}
-            onBlur={checkName}
-          />
-        </div>
-        <div className={fieldWrap}>
-          <label className={label}>Signature Date (today)</label>
-          <input
-            ref={dateRef}
-            name="signatureDate"
-            className={input}
-            type="date"
-            autoComplete="off"
-            required
-            onInput={checkDate}
-            onBlur={checkDate}
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function QuoteForm() {
   const [lob, setLob] = useState<LOB>("Home");
   const [bizAnswers, setBizAnswers] = useState<Record<string, boolean>>({});
@@ -271,14 +210,6 @@ export default function QuoteForm() {
       data-netlify="true"
       netlify-honeypot="bot-field"
       className="space-y-8"
-      onSubmit={(e) => {
-        const f = e.currentTarget;
-        const n = f.elements.namedItem("applicantSignature") as HTMLInputElement | null;
-        const d = f.elements.namedItem("signatureDate") as HTMLInputElement | null;
-        if (n) n.setCustomValidity(n.value.trim().split(/\s+/).filter(Boolean).length < 2 ? "Type your full legal name (first and last) as your signature." : "");
-        if (d) d.setCustomValidity(d.value && d.value !== localToday() ? "The signature date must be today's date." : "");
-        if (!f.checkValidity()) { e.preventDefault(); f.reportValidity(); }
-      }}
     >
       <input type="hidden" name="form-name" value="quote" />
       <p className="hidden">
@@ -1003,8 +934,6 @@ export default function QuoteForm() {
               </div>
             ))}
           </div>
-
-          <SignatureFields />
         </div>
       )}
 
