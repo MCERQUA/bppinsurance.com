@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import QuoteForm from "@/components/QuoteForm";
+import QuoteSwitcher from "@/components/quote/QuoteSwitcher";
 
 export const metadata: Metadata = {
   title: "Get a Quote",
@@ -56,7 +56,7 @@ export default function QuotePage() {
           <h2 className="text-3xl font-bold text-navy-dark mb-10">
             Request Your Quote
           </h2>
-          <QuoteForm />
+          <QuoteSwitcher />
         </div>
       </section>
     </>
