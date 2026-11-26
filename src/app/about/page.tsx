@@ -91,8 +91,8 @@ export default function AboutPage() {
               <p>
                 As we have grown, we&apos;ve integrated modern technology with
                 our traditional values, ensuring our clients receive the most
-                sophisticated coverage with a human touch that only decades of
-                experience can provide.
+                sophisticated coverage with a human touch that only experience
+                can provide.
               </p>
             </div>
           </div>
@@ -151,8 +151,7 @@ export default function AboutPage() {
               Ready to secure your future?
             </h2>
             <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto relative z-10">
-              Join the thousands of families who trust BPP Insurance to protect
-              what matters most.
+              Trust BPP Insurance to protect what matters most.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
               <Link

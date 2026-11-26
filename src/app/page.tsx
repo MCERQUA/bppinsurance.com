@@ -32,13 +32,13 @@ const stats = [
     icon: "award_star",
     title: "25+ Years Experience",
     description:
-      "Decades of trusted insurance expertise, navigating through global market shifts with unwavering stability.",
+      "Trusted insurance expertise, navigating through global market shifts with unwavering stability.",
   },
   {
     icon: "groups",
-    title: "10,000+ Happy Clients",
+    title: "Personalized Care",
     description:
-      "Join our growing family of satisfied policyholders who value transparency and personalized care.",
+      "Coverage tailored to your home, family or business, with transparency at every step.",
   },
   {
     icon: "support_agent",
