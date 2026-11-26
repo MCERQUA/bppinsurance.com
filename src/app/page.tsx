@@ -111,7 +111,7 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="text-sm text-on-surface-variant leading-relaxed">
-                Securing over $4B in private and corporate assets.
+                Coverage designed around your property and what you have built.
               </p>
             </div>
           </div>
