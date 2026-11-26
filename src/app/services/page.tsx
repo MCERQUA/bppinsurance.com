@@ -41,7 +41,7 @@ const servicesJsonLd = {
       provider: { "@type": "InsuranceAgency", name: "BPP Insurance" },
       areaServed: { "@type": "Country", name: "United States" },
       description:
-        "Auto coverage with collision, comprehensive, liability, uninsured motorist, and 24/7 roadside assistance.",
+        "Auto coverage with collision, comprehensive, liability, uninsured motorist, and roadside assistance.",
     },
     {
       "@type": "Service",
@@ -91,7 +91,7 @@ const services = [
       "Collision & Comprehensive",
       "Liability protection",
       "Uninsured motorist coverage",
-      "24/7 Roadside assistance",
+      "Roadside assistance",
     ],
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuBUtLHITgdh3om469rvcAJmOHB2veL4TU-AiAKJoTM4qUBUI6uEdG9F1SY1CPG1aVAth-31XtTRC_dCv2ZE4ei5kJGLNIq2R43__IYyDt4dQ37mxSx1tIZRR7svlShR668J8mQyR8q8GSQ5hFRSJwDSgYBFXaoc6v6wP91FtUrqXpnhuOE3yKgB7fCgpD5ULUcXsdQl8eOsQzvxKl9HNwgBPm1d6FwcIN_ucKIktsS884MWubtsoGqYPUrnIRhu8mTv7wWQmq2VSA",

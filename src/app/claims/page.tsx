@@ -4,12 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "File a Claim",
   description:
-    "File an insurance claim online with BPP Insurance. Simple, stress-free claims process with 24/7 support.",
+    "File an insurance claim online with BPP Insurance. Simple, stress-free claims process with dedicated support.",
   alternates: { canonical: "/claims" },
   openGraph: {
     title: "File a Claim | BPP Insurance",
     description:
-      "Simple, stress-free claims process. File online or call our 24/7 hotline.",
+      "Simple, stress-free claims process. File online or call our claims line.",
     url: "/claims",
     type: "website",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "File a Claim | BPP Insurance",
     description:
-      "Simple, stress-free claims process. File online or call our 24/7 hotline.",
+      "Simple, stress-free claims process. File online or call our claims line.",
   },
 };
 
@@ -373,11 +373,11 @@ export default function ClaimsPage() {
                 emergency_share
               </span>
               <h3 className="text-2xl font-bold mb-4">
-                24/7 Emergency Claims Hotline
+                Claims Hotline
               </h3>
               <p className="text-slate-300 text-sm mb-8 leading-relaxed">
-                Our immediate response team is available around the clock for
-                urgent claims and emergency support.
+                Call our team to report a claim or get help with your next
+                steps.
               </p>
               <div className="text-3xl font-black tracking-tight mb-8">
                 (844) 967-5247

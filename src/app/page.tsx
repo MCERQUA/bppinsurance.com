@@ -42,9 +42,9 @@ const stats = [
   },
   {
     icon: "support_agent",
-    title: "24/7 Claims Support",
+    title: "Dedicated Claims Support",
     description:
-      "Always here when you need us most. Our dedicated response team is active around the clock.",
+      "Always here when you need us most. Our dedicated claims team will guide you through every step.",
   },
 ];
 
@@ -103,7 +103,7 @@ export default function HomePage() {
                 </span>
                 <div>
                   <p className="text-sm font-bold text-on-surface-variant uppercase tracking-wider">
-                    A+ Rated
+                    Trusted Protection
                   </p>
                   <p className="text-xl font-bold text-navy-dark">
                     Financial Security

@@ -112,7 +112,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Conclusion</h2>
 <p>A successful claims experience starts before the incident occurs. Maintain good records, understand your coverage, and communicate proactively with your insurer. When disaster strikes, you'll be prepared to navigate the process with confidence.</p>
-<p>Need help understanding your coverage or filing a claim? Our team is available 24/7 to guide you through every step.</p>
+<p>Need help understanding your coverage or filing a claim? Our team is here to guide you through every step.</p>
     `,
     author: "Contractors Choice Agency",
     authorRole: "Insurance Agency",
